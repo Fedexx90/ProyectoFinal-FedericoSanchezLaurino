@@ -24,7 +24,7 @@ El sitio está diseñado con una interfaz simple, clara y funcional.
 ## 🚀 Cómo ejecutar el proyecto
 
 1. Clonar este repositorio:
-   ```bash
+    bash
    git clone https://github.com/Fedexx90/ProyectoFinal-FedericoSanchezLaurino.git
 
 
