@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ auto.marca }} {{ auto.modelo }}</title>
+</head>
+<body>
+    <h1>{{ auto.marca }} {{ auto.modelo }}</h1>
+    <p>{{ auto.descripcion|safe }}</p>
+
+    {% if auto.imagen %}
+        <img src="{{ auto.imagen.url }}" width="400">
+    {% endif %}
+
+    <p>Publicado el: {{ auto.fecha_publicacion }}</p>
+
+    <a href="{% url 'auto_list' %}">⬅ Volver</a>
+</body>
+</html>

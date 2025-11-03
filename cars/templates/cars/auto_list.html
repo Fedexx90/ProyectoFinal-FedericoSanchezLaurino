@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}Lista de Autos{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h1 class="fw-bold">Lista de Autos</h1>
+    <a href="{% url 'auto_create' %}" class="btn btn-primary">
+        ➕ Agregar nuevo auto
+    </a>
+</div>
+
+{% if autos %}
+    <div class="row">
+        {% for auto in autos %}
+        <div class="col-md-4 mb-3">
+            <div class="card shadow-sm">
+                {% if auto.imagen %}
+                    <img src="{{ auto.imagen.url }}" class="card-img-top" alt="{{ auto.modelo }}">
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">{{ auto.marca }} {{ auto.modelo }}</h5>
+                    <p class="text-muted">Publicado por: {{ auto.creador.username }}</p>
+                    <div class="d-flex justify-content-between">
+                        <a href="{% url 'auto_detail' auto.pk %}" class="btn btn-sm btn-outline-primary">Ver</a>
+                        <a href="{% url 'auto_update' auto.pk %}" class="btn btn-sm btn-outline-warning">Editar</a>
+                        <a href="{% url 'auto_delete' auto.pk %}" class="btn btn-sm btn-outline-danger">Eliminar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <p class="text-muted">No hay autos cargados todavía.</p>
+{% endif %}
+{% endblock %}

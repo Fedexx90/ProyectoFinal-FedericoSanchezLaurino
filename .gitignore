@@ -1,0 +1,33 @@
+# =====================
+# Django / Python
+# =====================
+__pycache__/
+*.py[cod]
+*.sqlite3-journal
+*.log
+
+# =====================
+# Entorno virtual
+# =====================
+venv/
+.env
+
+# =====================
+# Archivos temporales o locales
+# =====================
+.DS_Store
+Thumbs.db
+.vscode/
+
+# =====================
+# Archivos estáticos y multimedia
+# =====================
+media/*
+!media/preview.png
+staticfiles/
+
+# =====================
+# Migraciones (opcional)
+# =====================
+# **/migrations/
+# !**/migrations/__init__.py

@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class="mt-4">Autos disponibles 🚗</h1>
+
+<form method="get" class="p-4 bg-white shadow-sm rounded mb-4">
+  <div class="row g-3 align-items-end">
+    <!-- Marca o modelo -->
+    <div class="col-md-4">
+      <label for="q" class="form-label">Buscar por marca o modelo</label>
+      <input
+        type="text"
+        name="q"
+        id="q"
+        class="form-control"
+        placeholder="Ej: Ford, Virtus, etc."
+        value="{{ query|default:'' }}"
+      />
+    </div>
+
+    <!-- Año desde -->
+    <div class="col-md-2">
+      <label for="anio_min" class="form-label">Año desde</label>
+      <input
+        type="number"
+        name="anio_min"
+        id="anio_min"
+        class="form-control"
+        min="1910"
+        max="2025"
+        value="{{ anio_min|default:'' }}"
+      />
+    </div>
+
+    <!-- Año hasta -->
+    <div class="col-md-2">
+      <label for="anio_max" class="form-label">Año hasta</label>
+      <input
+        type="number"
+        name="anio_max"
+        id="anio_max"
+        class="form-control"
+        min="1910"
+        max="2025"
+        value="{{ anio_max|default:'' }}"
+      />
+    </div>
+
+    <!-- Precio mínimo -->
+    <div class="col-md-2">
+      <label for="precio_min" class="form-label">Precio mín ($)</label>
+      <input
+        type="number"
+        name="precio_min"
+        id="precio_min"
+        class="form-control"
+        placeholder="0"
+        value="{{ precio_min|default:'' }}"
+      />
+    </div>
+
+    <!-- Precio máximo -->
+    <div class="col-md-2">
+      <label for="precio_max" class="form-label">Precio máx ($)</label>
+      <input
+        type="number"
+        name="precio_max"
+        id="precio_max"
+        class="form-control"
+        placeholder="9999999"
+        value="{{ precio_max|default:'' }}"
+      />
+    </div>
+
+    <!-- Botón -->
+    <div class="col-md-12 text-end">
+      <button type="submit" class="btn btn-primary px-4">
+        🔍 Buscar
+      </button>
+    </div>
+  </div>
+</form>
+
+{% if autos %}
+  <div class="row row-cols-1 row-cols-md-3 g-4 mt-3">
+    {% for auto in autos %}
+      <div class="col">
+        <div class="card h-100 shadow-sm">
+          {% if auto.imagen %}
+            <img src="{{ auto.imagen.url }}" class="card-img-top" alt="{{ auto.modelo }}">
+          {% else %}
+            <img src="https://via.placeholder.com/400x250?text=Sin+imagen" class="card-img-top">
+          {% endif %}
+          <div class="card-body">
+            <h5 class="card-title">{{ auto.marca }} {{ auto.modelo }}</h5>
+            <p><strong>Año:</strong> {{ auto.anio }}<br>
+               <strong>Precio:</strong> ${{ auto.precio|floatformat:2 }}</p>
+            <p class="card-text">{{ auto.descripcion|truncatechars:100 }}</p>
+            <a href="{% url 'cars:auto_detail' auto.id %}" class="btn btn-primary w-100">Ver detalles</a>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+{% else %}
+  <p class="text-center mt-5">🚫 No se encontraron autos que coincidan con tu búsqueda.</p>
+{% endif %}
+{% endblock %}
+

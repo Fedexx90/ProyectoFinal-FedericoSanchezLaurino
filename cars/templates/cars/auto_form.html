@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario Auto</title>
+</head>
+<body>
+    <h1>{{ form.instance.pk|yesno:"Editar Auto,Nuevo Auto" }}</h1>
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar</button>
+    </form>
+
+    <a href="{% url 'auto_list' %}">⬅ Volver</a>
+</body>
+</html>
