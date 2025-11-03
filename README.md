@@ -30,7 +30,7 @@ El sitio está diseñado con una interfaz simple, clara y funcional.
 
 ESTRUCTURA
 
-   📁 PLAYGROUND_AUTOS/
+```📁 PLAYGROUND_AUTOS/
 ├── ⚙️ playground/ # Configuración del proyecto principal
 │ ├── settings.py # Configuración general (apps, BD, rutas, templates)
 │ ├── urls.py # Rutas principales del proyecto
@@ -68,4 +68,4 @@ ESTRUCTURA
 ├── 🗃️ db.sqlite3 # Base de datos SQLite
 ├── 🧩 manage.py # Herramienta de administración de Django
 ├── 📦 requirements.txt # Dependencias del proyecto
-└── 📖 README.md # Documentación del proyecto
+└── 📖 README.md # Documentación del proyecto```
