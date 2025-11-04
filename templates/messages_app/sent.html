@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Mensajes enviados</h2>
+<ul class="list-group">
+{% for msg in messages %}
+  <li class="list-group-item">
+    <a href="{% url 'message_detail' msg.pk %}">{{ msg.subject }}</a>
+    <small class="text-muted">para {{ msg.receiver.username }} - {{ msg.created_at|date:"d/m/Y H:i" }}</small>
+  </li>
+{% endfor %}
+</ul>
+{% endblock %}

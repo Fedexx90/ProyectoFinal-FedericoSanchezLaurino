@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Bandeja de entrada</h2>
+{% if messages %}
+  <ul class="list-group">
+    {% for msg in messages %}
+      <li class="list-group-item {% if not msg.read %}fw-bold{% endif %}">
+        <a href="{% url 'messages_app:message_detail' msg.pk %}">Ver mensaje</a>
+        <small class="text-muted">de {{ msg.sender.username }} - {{ msg.created_at|date:"d/m/Y H:i" }}</small>
+      </li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>No tienes mensajes.</p>
+{% endif %}
+{% endblock %}

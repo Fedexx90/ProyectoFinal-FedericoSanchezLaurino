@@ -82,6 +82,13 @@
 </form>
 
 {% if autos %}
+{% if user.is_authenticated %}
+  <div class="text-end mb-3">
+    <a href="{% url 'cars:auto_create' %}" class="btn btn-success">
+      ➕ Agregar Auto
+    </a>
+  </div>
+{% endif %}
   <div class="row row-cols-1 row-cols-md-3 g-4 mt-3">
     {% for auto in autos %}
       <div class="col">
@@ -96,7 +103,7 @@
             <p><strong>Año:</strong> {{ auto.anio }}<br>
                <strong>Precio:</strong> ${{ auto.precio|floatformat:2 }}</p>
             <p class="card-text">{{ auto.descripcion|truncatechars:100 }}</p>
-            <a href="{% url 'cars:auto_detail' auto.id %}" class="btn btn-primary w-100">Ver detalles</a>
+            <a href="{% url 'cars:auto_detail' auto.pk %}" class="btn btn-primary">Ver detalle</a>
           </div>
         </div>
       </div>

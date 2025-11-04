@@ -47,6 +47,41 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+  <ul class="navbar-nav ms-auto">
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'cars:auto_list' %}">Inicio</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'about' %}">Acerca de mí</a>
+    </li>
+
+    {% if user.is_authenticated %}
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'accounts:profile' %}">Perfil</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'messages_app:inbox' %}">Bandeja</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'messages_app:send_message' %}">Nuevo mensaje</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'accounts:logout' %}">Cerrar sesión</a>
+    </li>
+{% else %}
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'accounts:login' %}">Iniciar sesión</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'accounts:register' %}">Registrarse</a>
+    </li>
+{% endif %}
+
+  </ul>
+</div>
+
         </div>
     </nav>
 

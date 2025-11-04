@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>{{ message.subject }}</h2>
+<p><strong>De:</strong> {{ message.sender.username }}</p>
+<p><strong>Para:</strong> {{ message.receiver.username }}</p>
+<p>{{ message.content }}</p>
+<p><small>{{ message.created_at|date:"d/m/Y H:i" }}</small></p>
+<a href="{% url 'messages_app:inbox' %}" class="btn btn-secondary mt-3">Volver</a>
+<a href="{% url 'messages_app:delete_message' message.pk %}" 
+   class="btn btn-danger mt-3"
+   onclick="return confirm('¿Seguro que querés eliminar este mensaje?');">
+   Eliminar mensaje
+</a>
+{% endblock %}

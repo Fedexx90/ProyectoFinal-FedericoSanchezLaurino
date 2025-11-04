@@ -4,44 +4,48 @@
 
 ---
 
-## 🧾 Descripción
+## 📖 Descripción
 
-**Playground Autos** es un sistema web desarrollado con **Django** como proyecto final del curso.  
+**Playground Autos** es un sistema web desarrollado con **Django**, como proyecto final del curso.  
 Permite **gestionar, filtrar y visualizar automóviles disponibles**, aplicando filtros por **marca, año y rango de precios**.  
+Además, incluye un sistema de **autenticación de usuarios, perfiles personales** y una app de **mensajería interna** entre usuarios.
+
 El sitio está diseñado con una interfaz simple, clara y funcional.
 
 ---
 
-## ⚙️ Tecnologías utilizadas
+## 🧰 Tecnologías utilizadas
 
 - 🐍 **Python 3.13**
 - 🌐 **Django 5.2**
-- 🎨 **HTML**, **CSS**, **Bootstrap**
-- 💾 **SQLite**
+- 🎨 **HTML5**, **CSS3**, **Bootstrap**
+- 🗄️ **SQLite3**
+- ✉️ **Django Messages Framework**
 
 ---
 
-## 🚀 Cómo ejecutar el proyecto
+## ⚙️ Cómo ejecutar el proyecto
 
-1. Clonar este repositorio:
-    bash
+1. **Clonar este repositorio:**
+   ```bash
    git clone https://github.com/Fedexx90/ProyectoFinal-FedericoSanchezLaurino.git
+   cd ProyectoFinal-FedericoSanchezLaurino
 
 
 ESTRUCTURA
 
 ```📁 PLAYGROUND_AUTOS/
-├── ⚙️ playground/ # Configuración del proyecto principal
-│ ├── settings.py # Configuración general (apps, BD, rutas, templates)
-│ ├── urls.py # Rutas principales del proyecto
+├── ⚙️ playground/       # Configuración del proyecto principal
+│ ├── settings.py        # Configuración general 
+│ ├── urls.py            # Rutas principales del proyecto
 │ ├── asgi.py
 │ └── wsgi.py
 │
-├── 🚗 cars/ # App principal: gestión de automóviles
-│ ├── models.py # Modelo Auto
-│ ├── forms.py # Formularios para crear/editar autos
-│ ├── views.py # Lógica de negocio (CRUD de autos)
-│ ├── urls.py # Rutas propias de la app Cars
+├── 🚗 cars/             # App principal: gestión de automóviles
+│ ├── models.py          # Modelo Auto
+│ ├── forms.py           # Formularios para crear/editar autos
+│ ├── views.py           # Lógica de negocio (CRUD de autos)
+│ ├── urls.py            # Rutas propias de la app Cars
 │ ├── templates/
 │ │ └── cars/
 │ │ ├── auto_list.html
@@ -50,9 +54,9 @@ ESTRUCTURA
 │ │ └── auto_confirm_delete.html
 │ └── migrations/
 │
-├── 👤 accounts/ # App de autenticación y usuarios
-│ ├── views.py # login_view, logout_view, register_view
-│ ├── urls.py # Rutas de login/logout/register
+├── 👤 accounts/         # App de autenticación y usuarios
+│ ├── views.py           # login_view, logout_view, register_view
+│ ├── urls.py            # Rutas de login/logout/register
 │ └── templates/
 │ └── accounts/
 │ ├── login.html
