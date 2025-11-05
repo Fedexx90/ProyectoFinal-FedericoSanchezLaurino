@@ -6,8 +6,7 @@
 
 ## 📖 Descripción
 
-**Playground Autos** es un sistema web desarrollado con **Django**, como proyecto final del curso.  
-Permite **gestionar, filtrar y visualizar automóviles disponibles**, aplicando filtros por **marca, año y rango de precios**.  
+**Playground Autos** es un sistema web desarrollado con **Django** que permite **gestionar, filtrar y visualizar automóviles disponibles**, aplicando filtros por **marca, año y rango de precios**.  
 Además, incluye un sistema de **autenticación de usuarios, perfiles personales** y una app de **mensajería interna** entre usuarios.
 
 El sitio está diseñado con una interfaz simple, clara y funcional.
