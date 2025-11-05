@@ -28,8 +28,31 @@ El sitio está diseñado con una interfaz simple, clara y funcional.
 
 1. **Clonar este repositorio:**
    ```bash
-   git clone https://github.com/Fedexx90/ProyectoFinal-FedericoSanchezLaurino.git
-   cd ProyectoFinal-FedericoSanchezLaurino
+   # 1️⃣ Clonar el repositorio
+git clone https://github.com/Fedexx90/ProyectoFinal-FedericoSanchezLaurino.git
+cd ProyectoFinal-FedericoSanchezLaurino
+
+# 2️⃣ Crear y activar entorno virtual (opcional pero recomendado)
+python -m venv venv
+# En Windows:
+venv\Scripts\activate
+# En Mac/Linux:
+source venv/bin/activate
+
+# 3️⃣ Instalar dependencias
+pip install -r requirements.txt
+
+# 4️⃣ Realizar migraciones
+python manage.py migrate
+
+# 5️⃣ (Opcional) Crear un superusuario para acceder al panel admin
+python manage.py createsuperuser
+
+# 6️⃣ Ejecutar el servidor
+python manage.py runserver
+
+# 7️⃣ Abrir el proyecto en el navegador
+http://127.0.0.1:8000/```
 
 
 ESTRUCTURA
